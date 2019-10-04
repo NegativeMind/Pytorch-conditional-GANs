@@ -16,6 +16,7 @@ class Discriminator(nn.Module):
         self.fc2 = nn.Linear(1024, 1)
         self.fc3 = nn.Linear(10, 1000)
 
+
     def forward(self, x, labels):
         batch_size = x.size(0)
         x = x.view(batch_size, 1, 28, 28)

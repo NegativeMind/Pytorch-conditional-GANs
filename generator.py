@@ -11,11 +11,12 @@ class Generator(nn.Module):
         self.z_dim = z_dim
         super(Generator, self).__init__()
         self.fc2 = nn.Linear(10, 1000)
-        self.fc = nn.Linear(self.z_dim+1000, 64 * 28 * 28)
+        self.fc = nn.Linear(self.z_dim + 1000, 64 * 28 * 28)
         self.bn1 = nn.BatchNorm2d(64)
         self.deconv1 = nn.ConvTranspose2d(64, 32, 5, 1, 2)
         self.bn2 = nn.BatchNorm2d(32)
         self.deconv2 = nn.ConvTranspose2d(32, 1, 5, 1, 2)
+
 
     def forward(self, x, labels):
         batch_size = x.size(0)
